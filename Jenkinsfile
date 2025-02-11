@@ -1,7 +1,7 @@
 pipeline {
     agent any
       parameters{
-        string (name: 'Branch_Name',defaultvalue: 'main',description: 'Branches')
+        string (name: 'Branch_Name',defaultValue: 'main',description: 'Branches')
     }
     tools{
         maven 'maven3'
