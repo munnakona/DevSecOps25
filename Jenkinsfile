@@ -1,8 +1,5 @@
 pipeline {
     agent any
-      parameters{
-        string (name: 'Branch_Name',defaultValue: 'main',description: 'Branches')
-    }
     tools{
         maven 'maven3'
         jdk 'jdk17'
@@ -11,7 +8,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                git branch: "${params.Branch_Name}", url: 'https://github.com/munnakona/DevSecOps25.git'
+                git branch: 'main', url: 'https://github.com/munnakona/DevSecOps25.git'
             }
         }
         stage('Compile') {
