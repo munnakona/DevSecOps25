@@ -1,6 +1,7 @@
 pipeline {
-    agent {
-        label 'Slave-1'
+    agent any
+      parameters{
+        string (name: 'Branch_Name',defaultvalue: 'main',description: 'Branches')
     }
     tools{
         maven 'maven3'
@@ -10,7 +11,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/munnakona/DevSecOps25.git'
+                git branch: "${params.Branch_Name}", url: 'https://github.com/munnakona/DevSecOps25.git'
             }
         }
         stage('Compile') {
